@@ -1,0 +1,84 @@
+{include file="header.tpl"} 
+
+{* another single line smarty comment  *}
+<!-- HTML comment that is sent to the browser -->
+
+{* this multiline smarty
+   comment is
+   not sent to browser
+*}
+
+{*********************************************************
+Multi line comment block with credits block
+  @ author:         bg@example.com
+  @ maintainer:     support@example.com
+  @ para:           var that sets block style
+  @ css:            the style output
+**********************************************************}
+
+{* variable  *}
+
+
+<h3>Name : {$Name}</h3>
+<p>Course : {$field}</p>
+
+{* Index Array *}
+
+<ul>
+{foreach $course as $name}
+    <li>{ucfirst($name)}</li>
+{/foreach}
+</ul>
+
+{* Multi Array *}
+
+
+{* key always available as a property *}
+
+<select>
+{foreach $citys as $key=>$city}
+ {foreach $city as $key=>$value}
+    <option value={$key}>{$value}</option>
+ {/foreach}
+{/foreach}
+</select>
+</br/>
+{* Asso Array *}
+
+{foreach $contacts as $contact}
+  {foreach $contact as $key => $value}
+    {$key}: {$value}
+  {/foreach}</br/>
+{/foreach}
+
+{$Contacts.fax}<br />
+{$Contacts.email}<br />
+{* you can print arrays of arrays as well *}
+{$Contacts.phone.home}<br />
+{$Contacts.phone.cell}<br />
+
+
+
+{* if condtional * }
+
+{if $logged_in}
+    Welcome, <span style="color:red;">{$Demo}!</span>
+{else}
+    hi, {$Demo}
+{/if}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{include file="footer.tpl"}
